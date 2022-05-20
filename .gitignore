@@ -2,4 +2,12 @@
 *__pycache__*
 
 # Ignore data
-!data/*/*/.gitkeep
+data/*/*/*
+data/*/*.csv
+!data/*/raw/.gitkeep
+
+# Ignore env vars
+.env
+
+# Ignore presentation
+presentation/

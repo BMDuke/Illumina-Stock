@@ -1,0 +1,29 @@
+version: "3.2"
+
+services:
+
+  # Project image
+  illumina:
+    image: illumina_bots:latest
+
+    # Copy the credentials file to the container & 
+    # add volume to persist data
+    volumes:
+
+      # File
+      - type: bind
+        source: ./requirements.txt
+        target: /app/requirements.txt
+        
+      # Data
+      - ./data/:/app/data
+      - ./src/:/app/src  
+    
+    # Map ports from host to container
+    ports:
+      - 8442:8443
+      - 8052:8052
+
+    environment:
+      - yf_api=yahoofinance_api
+
